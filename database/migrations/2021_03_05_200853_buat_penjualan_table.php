@@ -14,7 +14,7 @@ class BuatPenjualanTable extends Migration
     public function up()
     {
         Schema::create('penjualan', function (Blueprint $table) {
-            $table->increments('id_penjualan');
+            $table->id('id_penjualan');
             $table->integer('id_member');
             $table->integer('total_item');
             $table->integer('total_harga');

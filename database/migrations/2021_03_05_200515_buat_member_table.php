@@ -14,7 +14,7 @@ class BuatMemberTable extends Migration
     public function up()
     {
         Schema::create('member', function (Blueprint $table) {
-            $table->increments('id_member');
+            $table->id('id_member');
             $table->string('kode_member')->unique();
             $table->string('nama');
             $table->text('alamat')->nullable();
