@@ -41,7 +41,7 @@
     <div class="col-lg-12">
         <div class="box">
             <div class="box-body">
-                    
+
                 <form class="form-produk">
                     @csrf
                     <div class="form-group row">
@@ -81,11 +81,27 @@
                         <form action="{{ route('transaksi.simpan') }}" class="form-penjualan" method="post">
                             @csrf
                             <input type="hidden" name="id_penjualan" value="{{ $id_penjualan }}">
-                            <input type="hidden" name="total" id="total">
-                            <input type="hidden" name="total_item" id="total_item">
-                            <input type="hidden" name="bayar" id="bayar">
+                            <br>
+                            <div class="form-group row">
+                                <label for="totalrp" class="col-lg-2 control-label">Total (Custom)</label>
+                                <div class="col-lg-8">
+                                    <input type="text" name="total" id="total" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="totalrp" class="col-lg-2 control-label">Total Item (Custom)</label>
+                                <div class="col-lg-8">
+                                    <input type="text" name="total_item" id="total_item" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="totalrp" class="col-lg-2 control-label">Bayar (Custom)</label>
+                                <div class="col-lg-8">
+                                    <input type="text" name="bayar" id="bayar" class="form-control" >
+                                </div>
+                            </div>
                             <input type="hidden" name="id_member" id="id_member" value="{{ $memberSelected->id_member }}">
-
+                            <hr>
                             <div class="form-group row">
                                 <label for="totalrp" class="col-lg-2 control-label">Total</label>
                                 <div class="col-lg-8">
@@ -106,8 +122,8 @@
                             <div class="form-group row">
                                 <label for="diskon" class="col-lg-2 control-label">Diskon</label>
                                 <div class="col-lg-8">
-                                    <input type="number" name="diskon" id="diskon" class="form-control" 
-                                        value="{{ ! empty($memberSelected->id_member) ? $diskon : 0 }}" 
+                                    <input type="number" name="diskon" id="diskon" class="form-control"
+                                        value="{{ ! empty($memberSelected->id_member) ? $diskon : 0 }}"
                                         readonly>
                                 </div>
                             </div>
