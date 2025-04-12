@@ -18,7 +18,7 @@ class PenjualanController extends Controller
 
     public function data()
     {
-        $penjualan = Penjualan::with('member')->orderBy('id_penjualan', 'desc')->get();
+        $penjualan = Penjualan::with('member')->orderBy('id_penjualan', 'desc');
 
         return datatables()
             ->of($penjualan)
@@ -82,6 +82,9 @@ class PenjualanController extends Controller
         $penjualan->diskon = $request->diskon;
         $penjualan->bayar = $request->bayar;
         $penjualan->diterima = $request->diterima;
+        if($request->filled('tanggal')){
+            $penjualan->created_at = $request->tanggal;
+        }
         $penjualan->update();
 
         $detail = PenjualanDetail::where('id_penjualan', $penjualan->id_penjualan)->get();
@@ -99,7 +102,7 @@ class PenjualanController extends Controller
 
     public function show($id)
     {
-        $detail = PenjualanDetail::with('produk')->where('id_penjualan', $id)->get();
+        $detail = PenjualanDetail::with('produk')->where('id_penjualan', $id);
 
         return datatables()
             ->of($detail)
@@ -159,7 +162,7 @@ class PenjualanController extends Controller
         $detail = PenjualanDetail::with('produk')
             ->where('id_penjualan', session('id_penjualan'))
             ->get();
-        
+
         return view('penjualan.nota_kecil', compact('setting', 'penjualan', 'detail'));
     }
 

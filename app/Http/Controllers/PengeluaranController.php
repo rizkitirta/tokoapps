@@ -14,7 +14,7 @@ class PengeluaranController extends Controller
 
     public function data()
     {
-        $pengeluaran = Pengeluaran::orderBy('id_pengeluaran', 'desc')->get();
+        $pengeluaran = Pengeluaran::orderBy('id_pengeluaran', 'desc');
 
         return datatables()
             ->of($pengeluaran)

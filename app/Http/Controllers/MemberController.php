@@ -21,7 +21,7 @@ class MemberController extends Controller
 
     public function data()
     {
-        $member = Member::orderBy('kode_member')->get();
+        $member = Member::orderBy('kode_member');
 
         return datatables()
             ->of($member)

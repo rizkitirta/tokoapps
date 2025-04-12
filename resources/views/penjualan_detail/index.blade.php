@@ -100,6 +100,12 @@
                                     <input type="text" name="bayar" id="bayar" class="form-control" >
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="" class="col-lg-2 control-label">Tanggal (Custom)</label>
+                                <div class="col-lg-8">
+                                    <input type="date" name="tanggal" id="tanggal" class="form-control" >
+                                </div>
+                            </div>
                             <input type="hidden" name="id_member" id="id_member" value="{{ $memberSelected->id_member }}">
                             <hr>
                             <div class="form-group row">

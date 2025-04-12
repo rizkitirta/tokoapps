@@ -19,7 +19,7 @@ class PembelianController extends Controller
 
     public function data()
     {
-        $pembelian = Pembelian::with('supplier')->orderBy('id_pembelian', 'desc')->get();
+        $pembelian = Pembelian::with('supplier')->orderBy('id_pembelian', 'desc');
 
         return datatables()
             ->of($pembelian)
@@ -91,7 +91,7 @@ class PembelianController extends Controller
 
     public function show($id)
     {
-        $detail = PembelianDetail::with('produk')->where('id_pembelian', $id)->get();
+        $detail = PembelianDetail::with('produk')->where('id_pembelian', $id);
 
         return datatables()
             ->of($detail)
